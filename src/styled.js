@@ -9,12 +9,16 @@ export const Container = styled.div`
   height: auto;
   background: #e6ffff;
   padding-bottom: 20px;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
     padding-bottom: 720px;
-    /* width: 99vw; */
+        color: black;
+
+    
     /* width: 90vw; */
   }
 `
@@ -28,10 +32,14 @@ export const ContainerRegister = styled.div`
   height: 100vh;
   background: #e6ffff;
   padding-bottom: 20px;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
+    color: black;
+
     /* margin-top: -100px; */
     /* padding-bottom: 720px; */
 
@@ -46,6 +54,8 @@ export const ContainerUsers = styled.div`
   font-family: ' Work Sans 400';
   font-size: 17px;
   margin-bottom: 100px;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     display: flex;
@@ -61,6 +71,8 @@ export const Card = styled.div`
   height: 11rem;
   background: #9dd7fb;
   border-radius: 15px;
+    color: black;
+
 
   box-shadow: 6px 6px 25px #23a5f6;
 
@@ -68,12 +80,15 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     width: 18rem;
+    margin-bottom: 30px ;
   }
 `
 export const Title = styled.h1`
   font-size: 3rem;
   margin-bottom: 140px;
   margin-top: 100px;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     margin-top: 70px;
@@ -85,6 +100,8 @@ export const TitleRegister = styled.h1`
   font-size: 3rem;
   margin-bottom: 100px;
   margin-top: -130px;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     font-size: 1.5rem;
@@ -115,6 +132,8 @@ export const Input = styled.input`
   padding-left: 13px;
   font-family: 'Source Sans Pro' ;
   font-size: 15px ;
+    color: black;
+
 
   @media screen and (max-width: 700px) {
     width: 90%;
@@ -127,6 +146,8 @@ export const InputContainer = styled.div`
   justify-content: left;
   width: 100%;
   height: 40px;
+    color: black;
+
 `
 
 export const Button = styled.button`

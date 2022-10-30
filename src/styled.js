@@ -118,6 +118,11 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   width: 100%;
+
+
+  @media screen and (max-width: 700px) {
+    margin-top: -40px;
+  }
   /* background: pink ; */
 `
 

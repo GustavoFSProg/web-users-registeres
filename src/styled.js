@@ -108,7 +108,7 @@ export const TitleRegister = styled.h1`
   @media screen and (max-width: 700px) {
     font-size: 1.5rem;
     margin-bottom: 90px;
-    margin-top: 20px;
+    margin-top: -150px;
   }
 `
 

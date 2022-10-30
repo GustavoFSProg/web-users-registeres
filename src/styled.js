@@ -29,7 +29,7 @@ export const ContainerRegister = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  height: auto;
+  height: 100vh;
   background: #e6ffff;
   padding-bottom: 30px;
     color: black;
@@ -39,6 +39,8 @@ export const ContainerRegister = styled.div`
     display: flex;
     flex-direction: column;
     color: black;
+  height: 150vh;
+
 
     /* margin-top: -100px; */
     /* padding-bottom: 720px; */
@@ -80,7 +82,7 @@ export const Card = styled.div`
     display: flex;
     flex-direction: column;
     width: 18rem;
-    margin-bottom: 30px ;
+    margin-bottom: 50px ;
   }
 `
 export const Title = styled.h1`
@@ -106,7 +108,7 @@ export const TitleRegister = styled.h1`
   @media screen and (max-width: 700px) {
     font-size: 1.5rem;
     margin-bottom: 90px;
-    margin-top: 100px;
+    margin-top: 20px;
   }
 `
 

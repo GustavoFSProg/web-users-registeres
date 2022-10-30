@@ -15,7 +15,7 @@ export const Container = styled.div`
   @media screen and (max-width: 700px) {
     display: flex;
     flex-direction: column;
-    padding-bottom: 720px;
+    padding-bottom: 100px;
         color: black;
 
     

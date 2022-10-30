@@ -29,9 +29,9 @@ export const ContainerRegister = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   background: #e6ffff;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
     color: black;
 
 
@@ -106,7 +106,7 @@ export const TitleRegister = styled.h1`
   @media screen and (max-width: 700px) {
     font-size: 1.5rem;
     margin-bottom: 90px;
-    margin-top: 250px;
+    margin-top: 100px;
   }
 `
 

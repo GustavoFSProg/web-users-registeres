@@ -50,7 +50,7 @@ function Login() {
             type="password"
           />
           <br />
-          <Button type="submit">Cadastrar</Button>
+          <Button type="submit">Logar</Button>
         </Form>
       </ContainerRegister>
     </>

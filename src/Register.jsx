@@ -10,7 +10,14 @@ function Register() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
+  const Token = localStorage.getItem("Token")
+
   const navigate = useNavigate()
+
+  function nagationHome() {
+    navigate('/login')
+
+  }
 
   async function handleRegister(e) {
     try {
@@ -51,7 +58,8 @@ function Register() {
             type="password"
           />
           <br />
-          <Button type="submit">Cadastrar</Button>
+
+          {Token ? <Button type="submit">Cadastrar</Button> : <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>}
         </Form>
       </ContainerRegister>
     </>

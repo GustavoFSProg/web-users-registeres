@@ -19,6 +19,17 @@ function Register() {
 
   }
 
+  async function verifyUserToken() {
+
+    if (!Token) return alert("Error!!, Token Invalido!!")
+
+    const decode = await api.post('/verify-token', Token)
+
+    if (decode) return console.log("Decode")
+
+    console.log(`${decode}`)
+  }
+
   async function handleRegister(e) {
     try {
       e.preventDefault()
@@ -33,6 +44,8 @@ function Register() {
       return alert(`ERRO! ${error}`)
     }
   }
+
+  const decodeToken = verifyUserToken()
 
   return (
     <>
@@ -59,7 +72,7 @@ function Register() {
           />
           <br />
 
-          {Token ? <Button type="submit">Cadastrar</Button> : <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>}
+          {decodeToken && Token ? <Button type="submit">Cadastrar</Button> : <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>}
         </Form>
       </ContainerRegister>
     </>

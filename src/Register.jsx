@@ -1,3 +1,4 @@
+import axios from 'axios'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -6,33 +7,70 @@ import Header from './components/header/Header'
 import { Strong, TitleRegister, Button, ContainerRegister, Input, Form } from './styled'
 
 function Register() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [name, setName] = useState('Vireira')
+  const [email, setEmail] = useState('vv@gmail.com')
+  const [password, setPassword] = useState('1234')
 
-  const Token = localStorage.getItem("Token")
+  const Token = localStorage.getItem('Token')
 
   const navigate = useNavigate()
 
   function nagationHome() {
     navigate('/login')
-
   }
 
   async function verifyUserToken() {
+    const token = localStorage.getItem('Token')
 
-    if (!Token) return alert("Error!!, Token Invalido!!")
+    // if (!Token) return alert('Error!!, Token Invalido!!')
+    const decode = await api.post('/verify-token', token)
 
-    const decode = await api.post('/verify-token', Token)
+    // const decode = await api.post('/verify-token',
+    //   {
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Acess-Control-Allow-Origin': '*',
+    //       'Authorization': `token ${token}`,
+    //       'Accept': "application/json"
+    //     }
+    //   })
 
-    if (decode) return console.log("Decode")
+    // const decode = await api.post('/verify-token', token)
+    // axios.post(url, data, {
+    //   headers: {
+    //     'Authorization': `Basic ${token}`
+    //   },
+    // })
 
-    console.log(`${decode}`)
+    // const instance = axios.create({
+    //   baseURL: 'http://localhost:5000',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Acess-Control-Allow-Origin': '*',
+    //     'Authorization': `token ${Token}`,
+    //     'Accept': "application/json"
+    //   }
+    // })
+
+    // const { decode } = await instance.get('/verify-token', Token)
+
+    console.log(decode)
+
+    if (!decode) return console.log('error Decode')
+
+    return decode
   }
+
+
 
   async function handleRegister(e) {
     try {
       e.preventDefault()
+
+      const { decode } = verifyUserToken()
+
+      if (!decode) return alert('ERROR, not decoding')
+
       const data = { name, email, password }
 
       await api.post('/register', data)
@@ -45,7 +83,7 @@ function Register() {
     }
   }
 
-  const decodeToken = verifyUserToken()
+  const decord = verifyUserToken()
 
   return (
     <>
@@ -72,7 +110,11 @@ function Register() {
           />
           <br />
 
-          {decodeToken && Token ? <Button type="submit">Cadastrar</Button> : <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>}
+          {decord ? (
+            <Button type="submit">Cadastrar</Button>
+          ) : (
+            <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>
+          )}
         </Form>
       </ContainerRegister>
     </>

@@ -19,60 +19,6 @@ function Register() {
     navigate('/login')
   }
 
-  async function verifyUserToken() {
-    const token = localStorage.getItem('Token')
-
-    console.log(token)
-
-    // const { decode } = await api.post('/verify-token')
-
-    // if (!decode) return alert('ERROR, not decoding')
-    // console.log(decode)
-
-    return decode
-
-    // if (!Token) return alert('Error!!, Token Invalido!!')
-    // const decode = await api.post('/verify-token', token)
-    // const decode = await api.post(`/verify-token`, token)
-    // const decode = await api.post('/verify-token')
-
-    // const decode = await api.post('/verify-token',
-    //   {
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //       'Acess-Control-Allow-Origin': '*',
-    //       'Authorization': `token ${token}`,
-    //       'Accept': "application/json"
-    //     }
-    //   })
-
-    // const decode = await api.post('/verify-token', token)
-    // axios.post(url, data, {
-    //   headers: {
-    //     'Authorization': `Basic ${token}`
-    //   },
-    // })
-
-    // const instance = axios.create({
-    //   baseURL: 'http://localhost:5000',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Acess-Control-Allow-Origin': '*',
-    //     'Authorization': `token ${Token}`,
-    //     'Accept': "application/json"
-    //   }
-    // })
-
-    // const { decode } = await instance.get('/verify-token', Token)
-
-    // console.log(decode)
-
-    // if (!decode) return console.log('error Decode')
-
-    // return decode
-
-  }
-
   async function handleRegister(e) {
     try {
       e.preventDefault()
@@ -80,22 +26,14 @@ function Register() {
 
       console.log(token)
 
-      const decode = await api.post('/verify-token')
+      const { data } = await api.post('/verify-token', { token })
 
-      if (!decode) return alert('ERROR, not decoding')
-      console.log(decode)
+      if (!data?.isValidToken) return alert(`ERROR, Token Invalido!! `), console.log(data)
+      console.log(data)
 
-      // if (!Token) return alert('Error!!, Token Invalido!!')
-      // const decode = await api.post('/verify-token', token)
-      // const decode = await api.post(`/verify-token`, token)
+      const dados = { name, email, password }
 
-      // verifyUserToken()
-
-
-
-      const data = { name, email, password }
-
-      await api.post('/register', data)
+      await api.post('/register', dados)
 
       alert('Cadastro SUCESSO!')
 
@@ -105,7 +43,6 @@ function Register() {
     }
   }
 
-  const decord = verifyUserToken()
 
   return (
     <>

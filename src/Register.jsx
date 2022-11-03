@@ -22,8 +22,19 @@ function Register() {
   async function verifyUserToken() {
     const token = localStorage.getItem('Token')
 
+    console.log(token)
+
+    // const { decode } = await api.post('/verify-token')
+
+    // if (!decode) return alert('ERROR, not decoding')
+    // console.log(decode)
+
+    return decode
+
     // if (!Token) return alert('Error!!, Token Invalido!!')
-    const decode = await api.post('/verify-token', token)
+    // const decode = await api.post('/verify-token', token)
+    // const decode = await api.post(`/verify-token`, token)
+    // const decode = await api.post('/verify-token')
 
     // const decode = await api.post('/verify-token',
     //   {
@@ -54,22 +65,33 @@ function Register() {
 
     // const { decode } = await instance.get('/verify-token', Token)
 
-    console.log(decode)
+    // console.log(decode)
 
-    if (!decode) return console.log('error Decode')
+    // if (!decode) return console.log('error Decode')
 
-    return decode
+    // return decode
+
   }
-
-
 
   async function handleRegister(e) {
     try {
       e.preventDefault()
+      const token = localStorage.getItem('Token')
 
-      const { decode } = verifyUserToken()
+      console.log(token)
+
+      const decode = await api.post('/verify-token')
 
       if (!decode) return alert('ERROR, not decoding')
+      console.log(decode)
+
+      // if (!Token) return alert('Error!!, Token Invalido!!')
+      // const decode = await api.post('/verify-token', token)
+      // const decode = await api.post(`/verify-token`, token)
+
+      // verifyUserToken()
+
+
 
       const data = { name, email, password }
 

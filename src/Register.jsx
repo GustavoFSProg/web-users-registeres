@@ -8,7 +8,7 @@ import { Strong, TitleRegister, Button, ContainerRegister, Input, Form } from '.
 
 function Register() {
   const [name, setName] = useState('Vireira')
-  const [email, setEmail] = useState('vv@gmail.com')
+  const [email, setEmail] = useState('vaav@gmail.com')
   const [password, setPassword] = useState('1234')
 
   const Token = localStorage.getItem('Token')
@@ -23,6 +23,8 @@ function Register() {
     try {
       e.preventDefault()
       const token = localStorage.getItem('Token')
+
+      if (!token) return alert("ERROR,Token nulo!")
 
       console.log(token)
 
@@ -69,7 +71,7 @@ function Register() {
           />
           <br />
 
-          {decord ? (
+          {Token ? (
             <Button type="submit">Cadastrar</Button>
           ) : (
             <Button onClick={nagationHome}>CLICKE PARA LOGAR </Button>

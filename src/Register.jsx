@@ -28,7 +28,7 @@ function Register() {
 
       console.log(token)
 
-      const { data } = await api.post('/verify-token', { token })
+      const { data } = await api.post('/verify-token')
 
       if (!data?.isValidToken) return alert(`ERROR, Token Invalido!! `), console.log(data)
       console.log(data)
